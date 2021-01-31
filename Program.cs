@@ -17,8 +17,8 @@ namespace Task2
             {
                 Console.Write("Parking start: ");
                 string givenValue = Console.ReadLine();
-                //Type? 
-                while (!Double.TryParse(givenValue, out parkingStart) || parkingStart < 07.00)
+                
+                while (!double.TryParse(givenValue, out parkingStart) || parkingStart < 07.00)
                 {
                     Console.Write("Wrong type or negative value, try again: ");
                     givenValue = Console.ReadLine();
@@ -26,8 +26,8 @@ namespace Task2
 
                 Console.Write("Parking end: ");
                 givenValue = Console.ReadLine();
-                //Type? 
-                while (!Double.TryParse(givenValue, out parkingEnd) || parkingEnd > 22.00)
+                 
+                while (!double.TryParse(givenValue, out parkingEnd) || parkingEnd > 22.00)
                 {
                     Console.Write("Wrong type or negative value, try again: ");
                     givenValue = Console.ReadLine();
@@ -35,7 +35,7 @@ namespace Task2
 
 
                 parkingTime = parkingEnd - parkingStart;
-                parkingCharges = parkingTime * 1.75;
+                parkingCharges = Math.Ceiling(parkingTime) * 1.75;
 
                 Console.WriteLine("Parking time is {0:F2}: ", parkingTime);
                 Console.WriteLine("Parking charges are {0:F2} euros.", parkingCharges);
